@@ -24,4 +24,4 @@ WORKDIR /app
 ENV SECRET_KEY p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs
 
 # Выполнить запуск сервера разработки при старте контейнера.
-CMD ["python3", "manage.py", "runserver", "0:8000"]
+CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000"] 
