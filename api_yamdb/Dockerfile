@@ -9,7 +9,7 @@ RUN mkdir /app
 
 # Скопировать с локального компьютера файл зависимостей
 # в директорию /app.
-COPY requirements.txt /app
+COPY api_yambd/requirements.txt /app
 
 # Выполнить установку зависимостей внутри контейнера.
 RUN pip3 install -r /app/requirements.txt --no-cache-dir
@@ -21,7 +21,7 @@ COPY api_yamdb/ /app
 # Сделать директорию /app рабочей директорией. 
 WORKDIR /app
 
-ENV SECRET_KEY p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs
+#ENV SECRET_KEY p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs
 
 # Выполнить запуск сервера разработки при старте контейнера.
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000"] 
